@@ -8,7 +8,7 @@ const Header = ({ smoothScroll }: HeaderProps) => (
     <div className="container mx-auto px-6 py-4 flex justify-between items-center">
       {/* 会社ロゴ */}
       <div className="flex items-center space-x-2">
-        <img src="comLogo.jpg" alt="Company Logo" className="w-72 h-auto" />
+        <img src="/comLogo.jpg" alt="Company Logo" className="w-72 h-auto" />
       </div>
 
       {/* ナビゲーションメニュー */}

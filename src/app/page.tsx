@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState } from 'react';
-import Header from './components/header';
-import Hero from './components/hero';
-import About from './components/about';
-import Services from './components/services';
-import HealthCheck from './components/healthCheck'; // New Section
-import Portfolio from './components/portfolio';
-import Contact from './components/contact';
-import Footer from './components/footer';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import About from './components/About';
+import Services from './components/Services';
+import HealthCheck from './components/HealthCheck'; // New Section
+import Portfolio from './components/Portfolio';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 const App = () => {
   const smoothScroll = (id: string) => {

@@ -27,8 +27,9 @@ const App = () => {
 
   return (
     <>
-      <Header smoothScroll={smoothScroll} />
+      
       <main className="mt-20"> {/* Add margin top to prevent overlap with fixed header */}
+        <Header smoothScroll={smoothScroll} />
         <Hero smoothScroll={smoothScroll} />
         <About />
         <HealthCheck />

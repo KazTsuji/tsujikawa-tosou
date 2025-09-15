@@ -16,20 +16,19 @@ const Hero = ({ smoothScroll }: HeroProps) => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
       {/* コンテンツ */}
-      <div className="relative z-10  pt-16 sm:pt-20 max-w-5xl mx-auto">
-       <h1 className="text-4xl md:text-9xl font-extrabold leading-tight mb-4 drop-shadow-lg
+      <div className="relative z-10  pt-16 sm:pt-20 max-w-5xl mx-auto px-6">
+       <h1 className="text-4xl md:text-9xl font-extrabold leading-tight mb-10 drop-shadow-lg
                bg-gradient-to-r from-yellow-400 to-red-400 text-transparent bg-clip-text">
           『まるで新築!!』
         </h1>
         <p className="text-2xl md:text-4xl mb-8 drop-shadow-lg">
           長年の経験と確かな技術、そして地域に根ざしたサービスで、あなたの大切な建物を美しく保護します
         </p>
-        {/* このdivタグを修正 */}
-        <div className="flex justify-center items-center space-x-2">
-          <button onClick={() => smoothScroll('contact')} className="w-1/2 bg-blue-400 text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-blue-800 transition-colors duration-300 transform hover:scale-105">
+        <div className="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-2 sm:space-x-2">
+          <button onClick={() => smoothScroll('contact')} className="w-full sm:w-auto bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-800 transition-colors duration-300 transform hover:scale-105">
             無料見積もり依頼
           </button>
-          <button onClick={() => smoothScroll('services')} className="w-1/2 bg-transparent border-2 border-white text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-blue-800 hover:bg-opacity-20 transition-colors duration-300 transform hover:scale-105">
+          <button onClick={() => smoothScroll('services')} className="w-full sm:w-auto bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-800 hover:bg-opacity-20 transition-colors duration-300 transform hover:scale-105">
             サービス内容を見る
           </button>
         </div>

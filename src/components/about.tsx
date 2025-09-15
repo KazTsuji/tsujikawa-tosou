@@ -14,7 +14,7 @@ const About = () => (
         {/* ロゴエリア (1/4の幅) */}
         <div className="col-span-1 flex justify-center md:justify-start">
           <img
-            src="comLogo2.JPG"
+            src="comLogo2.jpg"
             alt="Company Logo"
             className="shadow-lg w-50 h-65 object-cover"
           />

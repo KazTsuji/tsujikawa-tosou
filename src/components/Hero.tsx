@@ -8,7 +8,7 @@ interface HeroProps {
 
 const Hero = ({ smoothScroll }: HeroProps) => {
   return (
-    <section id="hero" className="relative h-[70vh] sm:h-screen flex items-center justify-center text-center text-white overflow-hidden my-8" aria-label="外壁塗装・屋根塗装のヒーローセクション">
+    <section id="hero" className="relative h-[70vh] sm:h-screen flex items-center justify-center text-center text-white overflow-hidden my-5" aria-label="外壁塗装・屋根塗装のヒーローセクション">
       {/* 背景画像とオーバーレイ */}
       <Image
         src="/header.png"

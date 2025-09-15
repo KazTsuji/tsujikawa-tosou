@@ -67,24 +67,25 @@ const Contact = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-gray-700 font-medium mb-2">お名前 <span className="text-red-500">*</span></label>
-                  <input type="text" id="name" name="name" placeholder="山田太郎" className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" required />
+                  <input type="text" id="name" name="name" placeholder="山田太郎" className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-black" required />
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">電話番号</label>
-                  <input type="tel" id="phone" name="phone" placeholder="090-xxxx-xxxx" className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" />
+                  <input type="tel" id="phone" name="phone" placeholder="090-xxxx-xxxx" className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-black" />
                 </div>
               </div>
               <div>
                 <label htmlFor="email" className="block text-gray-700 font-medium mb-2">メールアドレス <span className="text-red-500">*</span></label>
-                <input type="email" id="email" name="email" placeholder="example@email.com" className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" required />
+                <input type="email" id="email" name="email" placeholder="example@email.com" className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-black" required />
               </div>
               <div>
                 <label htmlFor="service" className="block text-gray-700 font-medium mb-2">ご希望のサービス</label>
-                <select id="service" name="service" className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                <select id="service" name="service" className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-black">
                   <option value="">選択してください</option>
                   <option value="外壁塗装">外壁塗装</option>
                   <option value="屋根塗装">屋根塗装</option>
                   <option value="防水工事">防水工事</option>
+                  <option value="リフォーム">リフォーム</option>
                   <option value="見積もり依頼">見積もり依頼</option>
                   <option value="その他">その他</option>
                 </select>
@@ -96,7 +97,7 @@ const Contact = () => {
                   name="message"
                   rows={5} 
                   placeholder="ご質問やご相談内容をお聞かせください" 
-                  className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                  className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-black"
                   maxLength={maxMessageLength}
                   onChange={handleMessageChange}
                   required

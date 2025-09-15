@@ -16,8 +16,8 @@ const Hero = ({ smoothScroll }: HeroProps) => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
       {/* コンテンツ */}
-      <div className="relative p-4 z-10  pt-16 sm:pt-20 max-w-5xl mx-auto">
-       <h1 className="text-5xl md:text-9xl font-extrabold leading-tight mb-4 drop-shadow-lg
+      <div className="relative z-10  pt-16 sm:pt-20 max-w-5xl mx-auto">
+       <h1 className="text-4xl md:text-9xl font-extrabold leading-tight mb-4 drop-shadow-lg
                bg-gradient-to-r from-yellow-200 to-red-200 text-transparent bg-clip-text">
           『まるで新築!!』
         </h1>

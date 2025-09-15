@@ -1,3 +1,4 @@
+// Contact.tsx
 "use client";
 
 import React, { useState } from 'react';
@@ -11,14 +12,14 @@ const SectionHeading = ({ children, id }: { children: React.ReactNode, id: strin
 const Contact = () => {
   const [messageLength, setMessageLength] = useState(0);
   const maxMessageLength = 500;
-  const [status, setStatus] = useState(''); // ステータス表示用
+  const [status, setStatus] = useState('');
 
   const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessageLength(e.target.value.length);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // デフォルトのフォーム送信をキャンセル
+    e.preventDefault();
 
     setStatus('送信中...');
 
@@ -44,7 +45,7 @@ const Contact = () => {
 
       if (response.ok) {
         setStatus('送信が完了しました！');
-        form.reset(); // フォームをリセット
+        form.reset();
         setMessageLength(0);
       } else {
         setStatus(`送信に失敗しました: ${result.message}`);
@@ -62,7 +63,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {/* 左側のフォームエリア */}
           <div className="bg-blue-50 p-8 rounded-xl shadow-lg">
-            <h3 className="text-2xl text-black font-bold mb-6">お問い合わせフォーム</h3>
+            <h3 className="text-2xl text-black font-bold mb-6">無料お見積もり・ご相談</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -127,7 +128,7 @@ const Contact = () => {
               </div>
               <div>
                 <p className="text-lg font-semibold text-gray-800">電話番号</p>
-                <p className="text-gray-600">080-3863-6779</p>
+                <a href="tel:08038636779" className="text-gray-600 hover:underline">080-3863-6779</a>
                 <p className="text-gray-500 text-sm">平日: 8:00-18:00 / 土曜: 8:00-17:00</p>
               </div>
             </div>
@@ -152,7 +153,7 @@ const Contact = () => {
               </div>
               <div>
                 <p className="text-lg font-semibold text-gray-800">メールアドレス</p>
-                <p className="text-gray-600">tsujikawa24@yahoo.co.jp</p>
+                <a href="mailto:tsujikawa24@yahoo.co.jp" className="text-gray-600 hover:underline">tsujikawa24@yahoo.co.jp</a>
               </div>
             </div>
             <div className="flex items-start space-x-4">
@@ -176,12 +177,12 @@ const Contact = () => {
                 <span className="text-lg font-bold">無料見積もりも実施中</span>
               </div>
               <p className="text-gray-600 text-sm">現地調査・お見積もりは無料です。お気軽にお問い合わせください。</p>
-              <button className="w-full mt-4 bg-blue-600 text-white font-bold py-3 px-4 rounded-md hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center">
+              <a href="tel:08038636779" className="w-full mt-4 bg-blue-600 text-white font-bold py-3 px-4 rounded-md hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.127l-2.583 1.393a8.955 8.955 0 005.122 5.122l1.393-2.583a1 1 0 011.127-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 今すぐ電話で相談
-              </button>
+              </a>
             </div>
           </div>
         </div>

@@ -1,4 +1,6 @@
+// Footer.tsx
 import React from 'react';
+import Image from 'next/image';
 
 const smoothScroll = (id: string) => {
   const element = document.getElementById(id);
@@ -12,15 +14,20 @@ const Footer = () => (
     <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
       {/* 会社情報 */}
       <div>
-        <img src="comLogo3.png" alt="Company Logo" className="w-48 h-auto mb-4" />
+        <Image
+          src="/comLogo3.png"
+          alt="辻川塗装のロゴ"
+          width={192}
+          height={48}
+          className="mb-4"
+        />
         
-      
          <p className="text-gray-300 mb-4 text-xl">代表者：辻川　光</p>
         <div className="flex items-center text-gray-300 mb-2">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.127l-2.583 1.393a8.955 8.955 0 005.122 5.122l1.393-2.583a1 1 0 011.127-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
           </svg>
-          <p>TEL: 0120959224</p>
+          <a href="tel:0120959224" className="hover:underline">TEL: 0120959224</a>
         </div>
         <div className="flex items-center text-gray-300">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -34,12 +41,14 @@ const Footer = () => (
       {/* クイックリンク */}
       <div>
         <h3 className="text-xl font-bold text-blue-300 mb-4">クイックリンク</h3>
-        <ul className="space-y-2">
-          <li><button onClick={() => smoothScroll('hero')} className="text-gray-300 hover:text-white transition-colors duration-200">ホーム</button></li>
-          <li><button onClick={() => smoothScroll('about')} className="text-gray-300 hover:text-white transition-colors duration-200">会社概要</button></li>
-          <li><button onClick={() => smoothScroll('services')} className="text-gray-300 hover:text-white transition-colors duration-200">サービス内容</button></li>
-          <li><button onClick={() => smoothScroll('contact')} className="text-gray-300 hover:text-white transition-colors duration-200">お問い合わせ</button></li>
-        </ul>
+        <nav aria-label="フッターナビゲーション">
+          <ul className="space-y-2">
+            <li><a href="#hero" onClick={() => smoothScroll('hero')} className="text-gray-300 hover:text-white transition-colors duration-200">ホーム</a></li>
+            <li><a href="#about" onClick={() => smoothScroll('about')} className="text-gray-300 hover:text-white transition-colors duration-200">会社概要</a></li>
+            <li><a href="#services" onClick={() => smoothScroll('services')} className="text-gray-300 hover:text-white transition-colors duration-200">サービス内容</a></li>
+            <li><a href="#contact" onClick={() => smoothScroll('contact')} className="text-gray-300 hover:text-white transition-colors duration-200">お問い合わせ</a></li>
+          </ul>
+        </nav>
       </div>
 
       {/* 営業時間 */}

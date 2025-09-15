@@ -1,3 +1,4 @@
+//page.tsx
 "use client";
 
 import React, { useState } from 'react';
@@ -9,6 +10,7 @@ import HealthCheck from '../components/HealthCheck';
 import Portfolio from '../components/Portfolio';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+
 
 const App = () => {
   const smoothScroll = (id: string) => {

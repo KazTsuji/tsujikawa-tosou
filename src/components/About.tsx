@@ -7,47 +7,45 @@ const SectionHeading = ({ children, id }: { children: React.ReactNode, id: strin
   </h2>
 );
 
-const services = [
-  {
-    image: '/s1.jpg',
-    title: '外壁塗装',
-    description: '建物の美観を保ち、紫外線や雨風から保護します。建物の寿命を延ばすために最適な塗料をご提案します。'
-  },
-  {
-    image: '/s2.jpg',
-    title: '屋根塗装',
-    description: '屋根は常に厳しい自然環境にさらされています。適切な塗装で、雨漏りを防ぎ、建物を守ります。'
-  },
-  {
-    image: '/s3.jpg',
-    title: '防水工事',
-    description: 'ベランダや屋上など、雨水の侵入を防ぐための防水工事を行います。雨漏りによる建物の劣化を防ぎます。'
-  }
-];
-
-const Services = () => (
-  <section id="services" className="py-20 bg-white">
-    <div className="container mx-auto px-6">
-      <SectionHeading id="services">サービス内容</SectionHeading>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {services.map((service, index) => (
-          <div key={index} className="bg-blue-100 rounded-xl p-6 shadow-lg text-center transition-transform transform hover:scale-105 duration-300">
-            <div className="flex justify-center mb-4">
-              <Image 
-                src={service.image} 
-                alt={service.title} 
-                width={240} // h-60, w-60に合わせて240pxを指定
-                height={240}
-                className="rounded-full object-cover" 
-              />
-            </div>
-            <h3 className="text-xl font-semibold mb-2 text-gray-800">{service.title}</h3>
-            <p className="text-gray-600">{service.description}</p>
+const About = () => (
+  <section id="about" className=" bg-blue-50">
+    <div className="container mx-auto max-w-6xl pt-10">
+      <SectionHeading id="about">会社概要</SectionHeading>
+      <div className="grid grid-cols-1 md:grid-cols-4 items-center">
+        {/* ロゴエリア (1/4の幅) */}
+        <div className="md:justify-center">
+          <div className="flex justify-center md:justify-start">
+            <Image
+              src="/comLogo2.jpg"
+              alt="辻川塗装の会社ロゴ" // alt属性をより具体的に
+              width={200}
+              height={260}
+              className="shadow-lg object-cover"
+            />
           </div>
-        ))}
+        </div>
+        {/* テキストエリア (3/4の幅) */}
+        <div className="col-span-3 text-center md:text-left">
+          <p className="text-gray-600 leading-relaxed md:text-2xl px-10 pt-10">
+            私たちは、お客様の大切な建物を守り、美しく蘇らせる**外壁塗装**と**屋根塗装**の専門家です。創業から15年、**泉大津市**に根ざした地域密着のサービスで、多くのお客様にご信頼いただいてまいりました。
+            特に、長年にわたり大手ハウスメーカーの下請けとして培った確かな技術力は、私たちの最大の強みです。戸建てからマンション、商業施設まで、あらゆる建物の「美しさ」と「耐久性」を追求し、安心してお任せいただける高品質な施工をお約束します。
+            私たちは、お客様一人ひとりの想いに寄り添い、建物に最適なご提案をさせていただきます。お見積もりは無料です。**泉大津市**での**外壁塗装**や**屋根塗装**に関するご相談は、まずはお気軽にご連絡ください。
+          </p>
+        </div>
       </div>
+    </div>
+    {/* 挿入した画像 */}
+    <div className="mt-12">
+      <Image
+        src="/a1.png"
+        alt="大阪府泉大津市で塗装工事を行う職人" // alt属性をより具体的に
+        width={1200}
+        height={600}
+        layout="responsive"
+        objectFit="cover"
+      />
     </div>
   </section>
 );
 
-export default Services;
+export default About;

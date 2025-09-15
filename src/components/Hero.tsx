@@ -8,7 +8,7 @@ interface HeroProps {
 
 const Hero = ({ smoothScroll }: HeroProps) => {
   return (
-    <section id="hero" className="relative h-[70vh] sm:h-screen flex items-center justify-center text-center text-white overflow-hidden py-10" aria-label="外壁塗装・屋根塗装のヒーローセクション">
+    <section id="hero" className="relative h-[70vh] sm:h-screen flex items-center justify-center text-center text-white overflow-hidden py-12" aria-label="外壁塗装・屋根塗装のヒーローセクション">
       {/* 背景画像とオーバーレイ */}
       <Image
         src="/header.png"
@@ -23,12 +23,12 @@ const Hero = ({ smoothScroll }: HeroProps) => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
       {/* コンテンツ */}
-      <div className="relative z-10 pt-16 sm:pt-20 max-w-5xl mx-auto px-6">
+      <div className="relative z-10 pt-16 sm:pt-20 max-w-5xl mx-auto px-5">
        <h1 className="text-4xl md:text-9xl font-extrabold leading-tight mb-10 drop-shadow-lg
                bg-gradient-to-r from-yellow-400 to-red-400 text-transparent bg-clip-text">
           『まるで新築!!』
         </h1>
-        <p className="text-xl md:text-4xl mb-8 drop-shadow-lg">
+        <p className="text-xl md:text-2xl mb-6 drop-shadow-lg">
           長年の経験と確かな技術、そして地域に根ざしたサービスで、あなたの大切な建物を美しく保護します
         </p>
         <div className="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-2 sm:space-x-2">

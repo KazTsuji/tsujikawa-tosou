@@ -8,15 +8,17 @@ interface HeroProps {
 
 const Hero = ({ smoothScroll }: HeroProps) => {
   return (
-    <section id="hero" className="relative h-[70vh] sm:h-screen flex items-center justify-center text-center text-white overflow-hidden my-5" aria-label="外壁塗装・屋根塗装のヒーローセクション">
+    <section id="hero" className="relative h-[70vh] sm:h-screen flex items-center justify-center text-center text-white overflow-hidden py-10" aria-label="外壁塗装・屋根塗装のヒーローセクション">
       {/* 背景画像とオーバーレイ */}
       <Image
         src="/header.png"
         alt="大阪府泉大津市で塗装された美しい外壁"
         layout="fill"
-        objectFit="cover"
+        // objectFit="cover" // この行を削除
         quality={100}
         priority
+        className="object-cover" // Tailwind CSSのクラスでobject-fitを指定
+        style={{ transform: 'scale(1.2)' }} // この行を追加
       />
       <div className="absolute inset-0 bg-black opacity-50"></div>
 

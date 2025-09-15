@@ -28,7 +28,7 @@ const Hero = ({ smoothScroll }: HeroProps) => {
                bg-gradient-to-r from-yellow-400 to-red-400 text-transparent bg-clip-text">
           『まるで新築!!』
         </h1>
-        <p className="text-2xl md:text-4xl mb-8 drop-shadow-lg">
+        <p className="text-xl md:text-4xl mb-8 drop-shadow-lg">
           長年の経験と確かな技術、そして地域に根ざしたサービスで、あなたの大切な建物を美しく保護します
         </p>
         <div className="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-2 sm:space-x-2">

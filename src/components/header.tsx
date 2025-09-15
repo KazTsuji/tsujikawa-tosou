@@ -4,7 +4,9 @@ interface HeaderProps {
   smoothScroll: (id: string) => void;
 }
 const Header = ({ smoothScroll }: HeaderProps) => (
-  <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50 transition-shadow duration-300">
+  //<header className="fixed top-0 left-0 w-full bg-white shadow-md z-50 transition-shadow duration-300">
+  <header className="fixed top-0 left-0 w-full bg-red-500 shadow-md z-50">
+
     <div className="container mx-auto px-6 py-4 flex justify-between items-center">
       {/* 会社ロゴ */}
       <div className="flex items-center space-x-2">

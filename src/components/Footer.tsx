@@ -13,7 +13,8 @@ const Footer = () => (
       {/* 会社情報 */}
       <div>
         <img src="comLogo3.png" alt="Company Logo" className="w-48 h-auto mb-4" />
-        <p className="text-gray-300 mb-4 text-xl">信頼と技術で彩る、安心の塗装サービス</p>
+        
+      
          <p className="text-gray-300 mb-4 text-xl">代表者：辻川　光</p>
         <div className="flex items-center text-gray-300 mb-2">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

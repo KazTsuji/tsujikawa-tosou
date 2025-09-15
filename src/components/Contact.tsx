@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 
 const SectionHeading = ({ children, id }: { children: React.ReactNode, id: string }) => (
@@ -9,9 +11,48 @@ const SectionHeading = ({ children, id }: { children: React.ReactNode, id: strin
 const Contact = () => {
   const [messageLength, setMessageLength] = useState(0);
   const maxMessageLength = 500;
+  const [status, setStatus] = useState(''); // ステータス表示用
 
   const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessageLength(e.target.value.length);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // デフォルトのフォーム送信をキャンセル
+
+    setStatus('送信中...');
+
+    const form = e.currentTarget;
+    const data = {
+      name: (form.elements.namedItem('name') as HTMLInputElement).value,
+      phone: (form.elements.namedItem('phone') as HTMLInputElement).value,
+      email: (form.elements.namedItem('email') as HTMLInputElement).value,
+      service: (form.elements.namedItem('service') as HTMLSelectElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setStatus('送信が完了しました！');
+        form.reset(); // フォームをリセット
+        setMessageLength(0);
+      } else {
+        setStatus(`送信に失敗しました: ${result.message}`);
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus('送信中にエラーが発生しました');
+    }
   };
 
   return (
@@ -21,42 +62,38 @@ const Contact = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {/* 左側のフォームエリア */}
           <div className="bg-blue-50 p-8 rounded-xl shadow-lg">
-            <h3 className="text-2xl font-bold mb-6">お問い合わせフォーム</h3>
-            <form className="space-y-6">
+            <h3 className="text-2xl text-black font-bold mb-6">お問い合わせフォーム</h3>
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* お名前 */}
                 <div>
                   <label htmlFor="name" className="block text-gray-700 font-medium mb-2">お名前 <span className="text-red-500">*</span></label>
-                  <input type="text" id="name" placeholder="山田太郎" className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" required />
+                  <input type="text" id="name" name="name" placeholder="山田太郎" className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" required />
                 </div>
-                {/* 電話番号 */}
                 <div>
                   <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">電話番号</label>
-                  <input type="tel" id="phone" placeholder="090-xxxx-xxxx" className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" />
+                  <input type="tel" id="phone" name="phone" placeholder="090-xxxx-xxxx" className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" />
                 </div>
               </div>
-              {/* メールアドレス */}
               <div>
                 <label htmlFor="email" className="block text-gray-700 font-medium mb-2">メールアドレス <span className="text-red-500">*</span></label>
-                <input type="email" id="email" placeholder="example@email.com" className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" required />
+                <input type="email" id="email" name="email" placeholder="example@email.com" className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" required />
               </div>
-              {/* ご希望のサービス */}
               <div>
                 <label htmlFor="service" className="block text-gray-700 font-medium mb-2">ご希望のサービス</label>
-                <select id="service" className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                <select id="service" name="service" className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
                   <option value="">選択してください</option>
                   <option value="外壁塗装">外壁塗装</option>
                   <option value="屋根塗装">屋根塗装</option>
                   <option value="防水工事">防水工事</option>
-                  <option value="防水工事">見積もり依頼</option>
+                  <option value="見積もり依頼">見積もり依頼</option>
                   <option value="その他">その他</option>
                 </select>
               </div>
-              {/* お問い合わせ内容 */}
               <div>
                 <label htmlFor="message" className="block text-gray-700 font-medium mb-2">お問い合わせ内容 <span className="text-red-500">*</span></label>
                 <textarea 
                   id="message" 
+                  name="message"
                   rows={5} 
                   placeholder="ご質問やご相談内容をお聞かせください" 
                   className="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
@@ -75,12 +112,12 @@ const Contact = () => {
                 お問い合わせを送信
               </button>
             </form>
+            {status && <p className="mt-4 text-center font-bold">{status}</p>}
           </div>
 
           {/* 右側の会社情報エリア */}
           <div className="bg-blue-50 p-8 rounded-xl shadow-lg flex flex-col space-y-8">
-            <h3 className="text-2xl font-bold mb-2">会社情報</h3>
-            {/* 電話番号 */}
+            <h3 className="text-2xl text-black font-bold mb-2">会社情報</h3>
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -93,7 +130,6 @@ const Contact = () => {
                 <p className="text-gray-500 text-sm">平日: 8:00-18:00 / 土曜: 8:00-17:00</p>
               </div>
             </div>
-            {/* 所在地 */}
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -107,7 +143,6 @@ const Contact = () => {
                 <p className="text-gray-600">大阪府 泉大津市 豊中町 3-2-10</p>
               </div>
             </div>
-            {/* メールアドレス */}
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -119,7 +154,6 @@ const Contact = () => {
                 <p className="text-gray-600">tsujikawa24@yahoo.co.jp</p>
               </div>
             </div>
-            {/* 営業時間 */}
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -133,7 +167,6 @@ const Contact = () => {
                 <p className="text-gray-600">日曜・祝日: 定休日</p>
               </div>
             </div>
-            {/* 無料見積もり */}
             <div className="mt-8 pt-6 border-t border-blue-200">
               <div className="flex items-center space-x-2 text-blue-600 mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">

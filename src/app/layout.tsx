@@ -35,6 +35,9 @@ export const metadata: Metadata = {
     locale: 'ja_JP',
     type: 'website',
   },
+  verification: {
+    google: '<meta name="google-site-verification" content="2YohHhXh5CmVA5a1aJfM-RH9twAYWySG5RJKt8RF1U8" />', // コピーした文字列に置き換える
+  },
 };
 
 export default function RootLayout({

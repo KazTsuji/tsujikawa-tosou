@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   verification: {
-    google: '<meta name="google-site-verification" content="2YohHhXh5CmVA5a1aJfM-RH9twAYWySG5RJKt8RF1U8" />', // コピーした文字列に置き換える
+    google: '2YohHhXh5CmVA5a1aJfM-RH9twAYWySG5RJKt8RF1U8', // 認証コードの文字列だけを記述
   },
 };
 

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://tsujikawa-tosou.vercel.app
+
+# Sitemaps
+Sitemap: https://tsujikawa-tosou.vercel.app/sitemap.xml

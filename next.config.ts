@@ -1,14 +1,11 @@
-import type { NextConfig } from "next";
-
-/* const nextConfig: NextConfig = {
-  config options here 
-};*/
-
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
-module.exports = nextConfig
+const nextConfig = {
+  // ここに設定オプションを追加します。
+};
 
-export default nextConfig;
+module.exports = nextConfig;
 
+//next.config.js
 
+import type { NextConfig } from "next";
 

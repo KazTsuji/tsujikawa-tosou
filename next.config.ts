@@ -5,7 +5,4 @@ const nextConfig = {
 
 module.exports = nextConfig;
 
-//next.config.js
-
-import type { NextConfig } from "next";
 
